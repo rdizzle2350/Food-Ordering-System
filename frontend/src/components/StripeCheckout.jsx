@@ -26,7 +26,7 @@ const CheckoutForm = () => {
 
         try {
             // Send request to backend to create a payment intent
-            const { data } = await axios.post("http://localhost:5000/api/stripe/create-payment-intent", {
+            const { data } = await axios.post("/api/stripe/create-payment-intent", {
                 amount: 1000, // Amount in cents (e.g., 10 USD)
                 currency: "usd",
             });

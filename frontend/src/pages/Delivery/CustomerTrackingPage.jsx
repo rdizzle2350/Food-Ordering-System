@@ -100,7 +100,7 @@ const CustomerTrackingPage = () => {
   useEffect(() => {
     console.log(userId, orderId);
     const intervalId = setInterval(() => {
-      fetch(`http://localhost:8081/api/delivery/by-order/${orderId}?userId=${userId}`, {
+      fetch(`/api/delivery/by-order/${orderId}?userId=${userId}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
         .then(res => res.json())

@@ -307,7 +307,7 @@ const ProfileSettings = () => {
           <div className={styles.profileSummary}>
             {restaurant?.logo ? (
               <img 
-                src={`http://localhost:3000/${restaurant.logo}`} 
+                src={`/${restaurant.logo}`} 
                 alt={restaurant.name}
                 className={styles.profileAvatar}
               />
@@ -440,7 +440,7 @@ const ProfileSettings = () => {
                     <div className={styles.coverImageContainer}>
                       {restaurant?.coverImage ? (
                         <img 
-                          src={`http://localhost:3000/${restaurant.coverImage}`} 
+                          src={`/${restaurant.coverImage}`} 
                           alt="Restaurant cover"
                           className={styles.coverImage}
                         />
@@ -470,7 +470,7 @@ const ProfileSettings = () => {
                     <div className={styles.logoImageContainer}>
                       {restaurant?.logo ? (
                         <img 
-                          src={`http://localhost:3000/${restaurant.logo}`} 
+                          src={`/${restaurant.logo}`} 
                           alt={restaurant.name}
                           className={styles.logoImage}
                         />

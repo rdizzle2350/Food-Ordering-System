@@ -109,7 +109,7 @@ const DriverDeliveryPage = ({ driverId }) => {
           const { latitude, longitude } = position.coords;
           setLocation({ latitude, longitude });
 
-          fetch('http://localhost:8081/api/delivery/update-location', {
+          fetch('/api/delivery/update-location', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -203,7 +203,7 @@ const DriverDeliveryPage = ({ driverId }) => {
   }, [location, delivery]);
 
   const availableDeliveries = () => {
-    fetch(`http://localhost:8081/api/delivery/by-driver/${driverId}`, {
+    fetch(`/api/delivery/by-driver/${driverId}`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -217,7 +217,7 @@ const DriverDeliveryPage = ({ driverId }) => {
   };
 
   const markAsDelivered = () => {
-    fetch(`http://localhost:8081/api/delivery/mark-delivered/${driverId}`, {
+    fetch(`/api/delivery/mark-delivered/${driverId}`, {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${token}` }
     })

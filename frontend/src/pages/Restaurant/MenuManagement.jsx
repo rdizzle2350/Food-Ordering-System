@@ -309,7 +309,7 @@ const MenuManagement = () => {
                   {item.image && (
                     <div className={styles.imageContainer}>
                       <img 
-                        src={`http://localhost:3000/${item.image}`} 
+                        src={`/${item.image}`} 
                         alt={item.name}
                         className={styles.itemImage}
                         onError={(e) => {

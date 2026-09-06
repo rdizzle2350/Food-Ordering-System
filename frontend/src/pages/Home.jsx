@@ -15,14 +15,14 @@ const Home = () => {
         setLoading(true);
         
         // Fetch restaurants from your API
-        const restaurantsResponse = await axios.get("http://localhost:3000/api/customers/restaurants");
+        const restaurantsResponse = await axios.get("/api/customers/restaurants");
         const restaurants = restaurantsResponse.data.restaurants || [];
         
         // Get top 3 restaurants for the popular section
         const topRestaurants = restaurants.slice(0, 3).map(restaurant => ({
           id: restaurant._id,
           name: restaurant.name,
-          image: restaurant.logo ? `http://localhost:3000/${restaurant.logo}` : 
+          image: restaurant.logo ? `/${restaurant.logo}` : 
                  "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
           cuisine: restaurant.cuisine?.join(", ") || "Various",
           rating: (Math.random() * (5 - 4) + 4).toFixed(1), // Random rating between 4.0-5.0
@@ -33,7 +33,7 @@ const Home = () => {
         
         // If we have restaurants, fetch menu items from the first restaurant
         if (restaurants.length > 0) {
-          const menuResponse = await axios.get(`http://localhost:3000/api/customers/restaurants/${restaurants[0]._id}`);
+          const menuResponse = await axios.get(`/api/customers/restaurants/${restaurants[0]._id}`);
           const menuItems = menuResponse.data.restaurant.menu || [];
           
           // Get top 3 menu items
@@ -42,7 +42,7 @@ const Home = () => {
             name: item.name,
             restaurant: restaurants[0].name,
             price: parseFloat(item.price),
-            image: item.image ? `http://localhost:3000/${item.image}` : 
+            image: item.image ? `/${item.image}` : 
                    "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
             restaurantId: restaurants[0]._id
           }));

@@ -19,7 +19,7 @@ const RestaurantDetail = () => {
     const fetchRestaurantDetails = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:3000/api/customers/restaurants/${restaurantId}`);
+        const response = await axios.get(`/api/customers/restaurants/${restaurantId}`);
         setRestaurant(response.data.restaurant);
         setMenuItems(response.data.restaurant.menu || []);
         
@@ -76,7 +76,7 @@ const RestaurantDetail = () => {
       <div className="w-full h-64 bg-cover bg-center relative" 
            style={{ 
              backgroundImage: restaurant.coverImage 
-               ? `url(http://localhost:3000/${restaurant.coverImage})` 
+               ? `url(/${restaurant.coverImage})` 
                : 'url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)'
            }}>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -117,7 +117,7 @@ const RestaurantDetail = () => {
             <div className="md:w-1/4 mt-6 md:mt-0 flex justify-center">
               {restaurant.logo && (
                 <img 
-                  src={`http://localhost:3000/${restaurant.logo}`} 
+                  src={`/${restaurant.logo}`} 
                   alt={restaurant.name} 
                   className="w-32 h-32 object-contain"
                   onError={(e) => {
@@ -147,7 +147,7 @@ const RestaurantDetail = () => {
                 }`}
               >
                 <img 
-                  src={item.image ? `http://localhost:3000/${item.image}` : "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"} 
+                  src={item.image ? `/${item.image}` : "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"} 
                   alt={item.name} 
                   className="w-full h-48 object-cover"
                   onError={(e) => {

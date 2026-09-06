@@ -18,7 +18,7 @@ const DriverDashboard = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch(`http://localhost:8081/api/delivery/by-driver/${driverId}`, {
+      const response = await fetch(`/api/delivery/by-driver/${driverId}`, {
         headers: { 'Authorization': `Bearer ${token || ""}` }
       });
       
@@ -67,7 +67,7 @@ const DriverDashboard = () => {
         setStatusMessage("Location tracking active");
         setErrorMessage(null);
         
-        fetch("http://localhost:8081/api/delivery/update-location", {
+        fetch("/api/delivery/update-location", {
           method: "POST",
           headers: { 
             "Content-Type": "application/json",

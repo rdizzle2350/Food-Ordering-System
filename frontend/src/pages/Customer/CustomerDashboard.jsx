@@ -72,7 +72,7 @@ const CustomerDashboard = () => {
               >
                 {restaurant.logo ? (
                   <img
-                    src={`http://localhost:3000/${restaurant.logo}`}
+                    src={`/${restaurant.logo}`}
                     alt={restaurant.name}
                     className="w-full h-40 object-cover rounded mb-4"
                   />
@@ -107,7 +107,7 @@ const CustomerDashboard = () => {
               <div key={item._id} className="border rounded-lg p-4 flex flex-col items-center hover:shadow-lg transition">
                 {item.image ? (
                   <img
-                    src={`http://localhost:3000/${item.image}`}
+                    src={`/${item.image}`}
                     alt={item.name}
                     className="w-full h-40 object-cover rounded mb-4"
                     onError={(e) => {
@@ -129,7 +129,7 @@ const CustomerDashboard = () => {
   <div key={item._id} className="border rounded-lg p-4 flex flex-col items-center hover:shadow-lg transition">
     {item.image ? (
       <img
-        src={`http://localhost:3000/${item.image}`}
+        src={`/${item.image}`}
         alt={item.name}
         className="w-full h-40 object-cover rounded mb-4"
         onError={(e) => {

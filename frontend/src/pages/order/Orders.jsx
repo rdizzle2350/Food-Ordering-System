@@ -38,7 +38,7 @@ const Orders = () => {
       setLoading(true);
       
       // Use the endpoint to fetch orders by customer email
-      const response = await axios.get(`http://localhost:5051/api/orders/customer/${userID}`);
+      const response = await axios.get(`/api/orders/customer/${userID}`);
       
       // If the response has orders property, use it (handles the empty orders case)
       if (response.data.orders) {

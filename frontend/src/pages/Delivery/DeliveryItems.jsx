@@ -7,7 +7,7 @@ const DeliveryItems = () => {
         console.log("Driver location:", latitude, longitude);
 
         // Send to backend
-        fetch("http://localhost:8081/api/delivery/update-location", {
+        fetch("/api/delivery/update-location", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

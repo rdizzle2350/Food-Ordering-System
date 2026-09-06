@@ -146,7 +146,7 @@ const Dashboard = () => {
       <div className={styles.coverPhotoContainer}>
         {restaurantData?.coverImage ? (
           <img 
-            src={`http://localhost:3000/${restaurantData.coverImage}`}
+            src={`/${restaurantData.coverImage}`}
             alt={`${restaurantData.name} cover`}
             className={styles.coverPhoto}
             onError={(e) => {
@@ -188,7 +188,7 @@ const Dashboard = () => {
       <div className={styles.profileSection}>
         {restaurantData?.logo ? (
           <img 
-            src={`http://localhost:3000/${restaurantData.logo}`} 
+            src={`/${restaurantData.logo}`} 
             alt={restaurantData.name}
             className={styles.userAvatar}
             onError={(e) => {
@@ -343,7 +343,7 @@ const Dashboard = () => {
                 {item.image ? (
                   <div className={styles.menuItemImage}>
                     <img 
-                      src={`http://localhost:3000/${item.image}`} 
+                      src={`/${item.image}`} 
                       alt={item.name}
                       onError={(e) => {
                         e.target.onerror = null;

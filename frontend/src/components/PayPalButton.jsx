@@ -4,7 +4,7 @@ import axios from "axios";
 const PayPalButton = ({ amount, currency }) => {
   const createOrder = async (data, actions) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/paypal/create-payment", {
+      const res = await axios.post("/api/paypal/create-payment", {
         amount,
         currency,
       });
@@ -17,7 +17,7 @@ const PayPalButton = ({ amount, currency }) => {
 
   const onApprove = async (data, actions) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/paypal/execute-payment", {
+      const res = await axios.post("/api/paypal/execute-payment", {
         orderID: data.orderID, // ✅ Correctly passing order ID
       });
 

@@ -59,7 +59,7 @@ const PaymentOptions = () => {
         case "card": {
           try {
             // First create payment intent
-            const { data: paymentData } = await axios.post("http://localhost:5056/api/stripe/create-payment-intent", {
+            const { data: paymentData } = await axios.post("/api/stripe/create-payment-intent", {
               amount: orderSummary.total * 100,
               currency: "inr",
               items: orderSummary.items
@@ -113,7 +113,7 @@ const PaymentOptions = () => {
 
               try {
                   console.log('Sending order payload:', orderPayload);
-                  const orderResponse = await axios.post("http://localhost:5051/api/orders", orderPayload);
+                  const orderResponse = await axios.post("/api/orders", orderPayload);
                   console.log('Order creation response:', orderResponse.data);
 
                   if (!orderResponse.data._id) {
@@ -132,7 +132,7 @@ const PaymentOptions = () => {
                   });
 
                   // Create delivery with order ID from order creation response
-                  await axios.post(`http://localhost:8081/api/delivery/create`, null, {
+                  await axios.post(`/api/delivery/create`, null, {
                     params: {
                       orderId: orderResponse.data._id,
                       userId: customerId,
@@ -162,7 +162,7 @@ const PaymentOptions = () => {
         case "cod": {
           try {
             // First create the order
-            await axios.post("http://localhost:5051/api/orders/create", {
+            await axios.post("/api/orders/create", {
               items: orderSummary.items,
               total: orderSummary.total,
               paymentMethod: 'cod',
@@ -179,7 +179,7 @@ const PaymentOptions = () => {
             console.log(userId, "User ID");
             console.log(orderSummary.orderId, "Order ID");
 
-            await axios.post(`http://localhost:8081/api/delivery/create`, null, {
+            await axios.post(`/api/delivery/create`, null, {
               params: {
                 orderId: orderSummary.orderId,
                 userId: userId,
